@@ -1,7 +1,7 @@
 {
   "name": "react-pizza",
   "version": "0.1.0",
-  "homepage": "http://kubarev01.github.io/kino-afisha/",
+  "homepage": "http://kubarev01.github.io/praktika-wc-kubarev/",
   "private": true,
   "dependencies": {
     "axios": "^1.7.9",
