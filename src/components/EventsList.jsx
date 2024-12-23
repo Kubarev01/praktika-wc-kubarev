@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { styles } from '../styles';
 const Movies = () => {
     const [movieTitle, setMovieTitle] = useState('');
     const [movies, setMovies] = useState([]); // Инициализация как пустой массив
@@ -44,6 +44,7 @@ const Movies = () => {
     return (
         <div>
             <h1>Поиск фильма</h1>
+            <p>Все названия на английском. Например Blade Runner</p>
             <form onSubmit={handleSubmit}>
                 <input 
                     type="text" 
@@ -73,50 +74,6 @@ const Movies = () => {
 };
 
 
-const styles = {
-    container: {
-        maxWidth: '800px',
-        margin: '0 auto',
-        padding: '20px',
-        textAlign: 'center',
-        fontFamily: 'Arial, sans-serif',
-    },
-    input: {
-        padding: '10px',
-        fontSize: '16px',
-        marginRight: '10px',
-        borderRadius: '4px',
-        border: '1px solid #ccc',
-    },
-    button: {
-        padding: '10px 15px',
-        fontSize: '16px',
-        borderRadius: '4px',
-        border: 'none',
-        backgroundColor: '#007BFF',
-        color: '#fff',
-        cursor: 'pointer',
-    },
-    cardContainer: {
-        marginTop: '20px',
-    },
-    moviesGrid: {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
-        gap: '20px',
-    },
-    card: {
-        backgroundColor: '#f8f8f8',
-        borderRadius: '8px',
-        boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
-        padding: '10px',
-        textAlign: 'left',
-    },
-    poster: {
-        width: '100%',
-        borderRadius: '4px',
-    },
-};
 
 
 export default Movies;
