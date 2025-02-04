@@ -1,1 +1,88 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>React App</title><script defer="defer" src="/static/js/main.8b440e43.js"></script></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Первое задание</title>
+
+</head>
+<body>
+    <h2>Добро пожаловать на практическую Карагуловой Анастасии и Кубарева Егора</h2>
+    <h3>1 задание</h3>
+    <nav>
+        <a class= "next" href="./triangle.html">
+            <ul>перейти на второе задание</ul>
+        </a>
+        <a class= "next" href="./calculator.html">
+            <ul>перейти на к Калькулятору</ul>
+        </a>
+        
+
+    </nav>
+    <h2>Введите стороны</h2>
+    <div>
+        <p>Сторона A</p>
+        <input id="sideA" type="number" value="">
+    </div>
+    <div>
+        <p>Сторона B</p>
+        <input id="sideB" type="number" value="">
+    </div>
+    <div>
+        <p>Сторона C</p>
+        <input id="sideC" type="number" value="">
+    </div>
+    <button class="button" id="calculate">Рассчитать</button>
+    <button class="button red" id="clear">Очистить</button>
+    <p class="warning" id="result"></p>
+
+    <script>
+        document.getElementById('clear').addEventListener('click',function(){
+            document.getElementById("sideA").value="";
+            document.getElementById("sideB").value="";
+            document.getElementById("sideC").value="";
+            document.getElementById("result").value=""
+        })
+
+        document.getElementById('calculate').addEventListener('click', function() {
+            const a = parseFloat(document.getElementById('sideA').value);
+            const b = parseFloat(document.getElementById('sideB').value);
+            const c = parseFloat(document.getElementById('sideC').value);
+            
+           
+            if (String(a).length> 10 || String(b).length>10 || String(c).length){
+                alert("Слишком длинное число");
+            }
+
+            
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                document.getElementById('result').innerText = "Пожалуйста, введите правильные значения для всех сторон.";
+                return;
+            }
+
+            
+            if (a + b <= c || a + c <= b || b + c <= a) {
+                document.getElementById('result').innerText = "Треугольник с такими сторонами не может существовать.";
+                alert("Ошибка! Треугольник с такими сторонами не может существовать.")
+                return;
+            }
+
+          
+            const s = (a + b + c) / 2; 
+            const area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+
+            let triangleType;
+            if (a === b && b === c) {
+                triangleType = "равносторонний";
+            } else if (a === b || b === c || a === c) {
+                triangleType = "равнобедренный";
+            } else {
+                triangleType = "разносторонний";
+            }
+
+            document.getElementById('result').innerText = `Площадь треугольника: ${area.toFixed(2)}. Тип треугольника: ${triangleType}.`;
+        });
+    </script>
+</body>
+</html>
